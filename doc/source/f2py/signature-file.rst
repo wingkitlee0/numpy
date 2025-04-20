@@ -1,6 +1,8 @@
-==================
- Signature file
-==================
+.. _f2py-signature-file:
+
+==============
+Signature file
+==============
 
 The interface definition file (.pyf) is how you can fine-tune the interface
 between Python and Fortran. The syntax specification for signature files

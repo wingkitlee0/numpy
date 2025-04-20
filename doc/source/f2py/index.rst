@@ -1,32 +1,63 @@
 .. _f2py:
 
-=====================================
-F2PY user guide and reference manual
-=====================================
+=======================
+F2PY: Fortran to Python
+=======================
 
-The purpose of the ``F2PY`` --*Fortran to Python interface generator*-- utility
-is to provide a connection between Python and Fortran. F2PY distributed as part
-of NumPy_ (``numpy.f2py``) and once installed is also available as a standalone
-command line tool. Originally created by Pearu Peterson, and older changelogs
-are in the `historical reference`_.
+F2PY (Fortran to Python interface generator) is a tool that provides
+a connection between Python and Fortran languages by creating and
+building . It was originally created by
+Pearu Peterson, and older changelogs are in the `historical reference`_.
 
-F2PY facilitates creating/building native `Python C/API extension modules`_ that
-make it possible
+What F2PY does
+--------------
 
-* to call Fortran 77/90/95 external subroutines and Fortran 90/95
-  module subroutines as well as C functions;
-* to access Fortran 77 ``COMMON`` blocks and Fortran 90/95 module data,
-  including allocatable arrays
-
-from Python.
+* Creates `Python C/API extension modules`_ from Fortran sources
+* Allows calling Fortran 77/90/95 routines from Python
+* Enables access to Fortran 77 COMMON blocks and Fortran 90/95 module data
+* Supports calling Python functions from Fortran (callbacks)
+* Automatically handles data type conversions
 
 
-.. note::
+Getting Started
+---------------
 
-   Fortran 77 is essentially feature complete, and an increasing amount of
-   Modern Fortran is supported within F2PY. Most ``iso_c_binding`` interfaces
-   can be compiled to native extension modules automatically with ``f2py``.
-   Bug reports welcome!
+If you're new to F2PY, start with the :ref:`f2py-quickstart` guide.
+
+For more detailed information, explore the User Guide:
+
+* :ref:`f2py-cli-usage` - Command-line usage
+* :ref:`f2py-getting-started` - Different approaches to wrapping Fortran code
+* :ref:`f2py-signature-files` - Working with signature files
+* :ref:`f2py-build-systems` - Using F2PY with build systems
+* :ref:`userguide/f2py-examples` - Examples
+
+Advanced Topics
+---------------
+
+* :doc:`advanced/signature_syntax` - Detailed signature file syntax
+* :doc:`advanced/attributes` - F2PY attributes reference
+* :doc:`advanced/callbacks` - Working with callbacks
+
+.. toctree::
+   :maxdepth: 1
+
+   quickstart
+   userguide/command_line
+   userguide/wrapping_methods
+   userguide/signature_files
+   userguide/build_systems
+   advanced/signature_syntax
+   advanced/attributes
+   advanced/callbacks
+
+.. toctree::
+   :maxdepth: 3
+
+   f2py-user
+   f2py-reference
+   windows/index
+   buildtools/distutils-to-meson
 
 F2PY can be used either as a command line tool ``f2py`` or as a Python
 module ``numpy.f2py``. While we try to provide the command line tool as part
@@ -44,14 +75,6 @@ If you run ``f2py`` with no arguments, and the line ``numpy Version`` at the
 end matches the NumPy version printed from ``python -m numpy.f2py``, then you
 can use the shorter version. If not, or if you cannot run ``f2py``, you should
 replace all calls to ``f2py`` mentioned in this guide with the longer version.
-
-.. toctree::
-   :maxdepth: 3
-
-   f2py-user
-   f2py-reference
-   windows/index
-   buildtools/distutils-to-meson
 
 .. _Python: https://www.python.org/
 .. _NumPy: https://www.numpy.org/

@@ -1,6 +1,7 @@
-===========
-Using F2PY
-===========
+.. _f2py-cli-usage:
+
+Command-Line Usage
+==================
 
 This page contains a reference to all command-line options for the ``f2py``
 command, as well as a reference to internal functions of the ``numpy.f2py``
@@ -116,7 +117,7 @@ To build an extension module, use
     [[ only: <fortran functions>  : ]     \
       [ skip: <fortran functions>  : ]]... \
     [ <fortran/c source files> ] [ <.o, .a, .so files> ]
- 
+
 If ``<fortran files>`` contains a signature file, then the source for an
 extension module is constructed, all Fortran and C sources are compiled, and
 finally all object and library files are linked to the extension module
@@ -145,7 +146,9 @@ Common build flags:
 ``--backend <backend_type>``
   Specify the build backend for the compilation process.  The supported backends
   are ``meson`` and ``distutils``.  If not specified, defaults to ``distutils``.
-  On Python 3.12 or higher, the default is ``meson``.
+  On Python 3.12 or higher, the default is ``meson``. See :ref:`distutils-status-migration`
+  for more information on the ``distutils`` deprecation.
+
 ``--f77flags=<string>``
   Specify F77 compiler flags
 ``--f90flags=<string>``
@@ -199,14 +202,14 @@ The older ``distutils`` flags are:
   See also ``--help-link`` switch.
 
 .. note::
-  
+
   The ``f2py -c`` option must be applied either to an existing ``.pyf`` file
   (plus the source/object/library files) or one must specify the
   ``-m <modulename>`` option (plus the sources/object/library files). Use one of
   the following options:
 
   .. code-block:: sh
-    
+
     f2py -c -m fib1 fib1.f
 
   or
@@ -230,12 +233,12 @@ required for non-gcc Fortran compilers:
   -DPREPEND_FORTRAN
   -DNO_APPEND_FORTRAN
   -DUPPERCASE_FORTRAN
- 
+
 To test the performance of F2PY generated interfaces, use
 ``-DF2PY_REPORT_ATEXIT``. Then a report of various timings is printed out at the
 exit of Python. This feature may not work on all platforms, and currently only
 Linux is supported.
- 
+
 To see whether F2PY generated interface performs copies of array arguments, use
 ``-DF2PY_REPORT_ON_ARRAY_COPY=<int>``. When the size of an array argument is
 larger than ``<int>``, a message about the copying is sent to ``stderr``.

@@ -96,7 +96,8 @@ additional parts required for building the documentation::
 Instructions
 ============
 
-Now you are ready to generate the docs, so write::
+Now you are ready to generate the docs using the `spin <https://github.com/scientific-python/spin>`_
+tool:
 
     spin docs
 

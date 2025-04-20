@@ -1,5 +1,6 @@
 .. _f2py-examples:
 
+=============
 F2PY examples
 =============
 
@@ -151,7 +152,7 @@ Inserting directives in Fortran source
 
 The robust interface of the previous section can also be generated automatically
 by placing the variable directives as special comments in the original Fortran
-code. 
+code.
 
 .. note::
 
